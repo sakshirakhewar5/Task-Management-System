@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Include necessary head content (e.g., title, stylesheets) -->
+    <!-- ... -->
+
+    <!-- Additional styles for the view page -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set a light background color */
+        }
+
+        .container {
+            margin-top: 20px; /* Add some top margin to the container */
+        }
+
+        h1 {
+            color: #007bff; /* Set header text color to a blue shade */
+            text-align: center; /* Center-align the header */
+        }
+
+        /* Center the content in the middle of the container */
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #dee2e6; /* Add a border to the box */
+            padding: 20px; /* Add padding to the box */
+            border-radius: 0.25rem; /* Add border radius to the box */
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Add a subtle box shadow to the box */
+        }
+
+        p {
+            margin: 10px 0; /* Add margin to paragraphs */
+        }
+
+        /* Add any additional styles you need */
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h1>View Task</h1>
+        </div>
+
+        <!-- Center the content in the middle of the container -->
+        <div class="center-content">
+            <!-- Display task details here -->
+            <p><strong>Title:</strong> <span th:text="${task.title}"></span></p>
+            <p><strong>Description:</strong> <span th:text="${task.description}"></span></p>
+            <p><strong>Status:</strong> <span th:text="${task.status}"></span></p>
+            
+            <!-- Add any additional content you want to display -->
+        </div>
+    </div>
+
+</body>
+
+</html>

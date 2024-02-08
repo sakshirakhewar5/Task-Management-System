@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set a light background color */
+        }
+
+        .navbar {
+            background-color: #007bff !important; /* Dark background color */
+        }
+
+        .navbar-brand {
+            color: #ffffff !important; /* White text color */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #ffffff; /* White color for the toggler icon */
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* White text color */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa !important; /* Change color on hover */
+        }
+
+        .container {
+            margin-top: 20px; /* Add some top margin to the container */
+        }
+
+        h1 {
+            color: #007bff; /* Set header text color to a blue shade */
+        }
+
+        .table {
+            margin-top: 20px; /* Add margin to the table */
+            border: 1px solid #dee2e6; /* Add border to the table */
+            border-radius: 0.25rem; /* Add border radius to the table */
+        }
+
+        .table th, .table td {
+            text-align: center; /* Center-align table headers and data */
+            padding: 12px; /* Add padding to cells */
+        }
+
+        .table-dark th {
+            background-color: rgb(0, 128, 192); /* Dark background color for table headers */
+            color: #ffffff; /* White text color for table headers */
+        }
+
+        .btn-primary, .btn-info, .btn-danger {
+            padding: 6px 12px; /* Adjust button padding */
+        }
+
+        .btn-info:hover {
+            background-color: #004080; /* Darker blue on hover for info buttons */
+            border-color: #004080; /* Darker blue border on hover for info buttons */
+        }
+
+        .btn-danger:hover {
+            background-color: #990000; /* Darker red on hover for danger buttons */
+            border-color: #990000; /* Darker red border on hover for danger buttons */
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Task Management System</a>
+
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h1>List Task</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/tasks/new}" class="btn btn-primary btn-sm mb-3">Add Task</a>
+        </div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Task Title</th>
+            <th>Task Description</th>
+            <th>Task Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="task : ${task}">
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.status}"></td>
+            <td>
+                <a th:href="@{/tasks/view/{id}(id=${task.id})}" class="btn btn-info btn-sm">View</a>
+                <a th:href="@{/tasks/edit/{id}(id=${task.id})}" class="btn btn-primary btn-sm">Update</a>
+                <a th:href="@{/tasks/{id}(id=${task.id})}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+
+</html>

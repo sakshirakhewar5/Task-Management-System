@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Logout Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set a light background color */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Set the container to full height of the viewport */
+        }
+
+        .logout-box {
+            background-color: #ffffff; /* Set a white background color for the box */
+            border: 1px solid #dee2e6; /* Add a border to the box */
+            border-radius: 10px; /* Add border radius to the box */
+            padding: 30px; /* Add padding to the box */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Add a subtle box shadow to the box */
+            width: 400px; /* Set the width of the box */
+            text-align: center;
+        }
+
+        h2 {
+            color: #007bff; /* Set header text color to a blue shade */
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logout-box">
+            <h2>Logout</h2>
+            <p>You have been logged out successfully.</p>
+            <a th:href="@{login}">Login</a>
+        </div>
+    </div>
+</body>
+
+</html>
